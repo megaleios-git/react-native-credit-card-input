@@ -47,7 +47,7 @@ export default class CreditCardInput extends Component {
     super(props);
     this.state = {};
   }
-  
+
   static propTypes = {
     ...InjectedProps,
     labels: PropTypes.object,
@@ -108,10 +108,6 @@ export default class CreditCardInput extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.focused !== this.props.focused) this._focus(this.props.focused);
   }
-
-  componentWillReceiveProps = newProps => {
-    
-  };
 
   _focus = field => {
     if (!field) return;
