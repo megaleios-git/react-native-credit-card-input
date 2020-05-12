@@ -43,6 +43,11 @@ const POSTAL_CODE_INPUT_WIDTH = 120;
 
 /* eslint react/prop-types: 0 */ // https://github.com/yannickcr/eslint-plugin-react/issues/106
 export default class CreditCardInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  
   static propTypes = {
     ...InjectedProps,
     labels: PropTypes.object,

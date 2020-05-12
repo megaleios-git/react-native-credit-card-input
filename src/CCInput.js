@@ -16,6 +16,11 @@ const s = StyleSheet.create({
 });
 
 export default class CCInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  
   static propTypes = {
     field: PropTypes.string.isRequired,
     label: PropTypes.string,
