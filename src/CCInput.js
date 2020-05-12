@@ -20,7 +20,7 @@ export default class CCInput extends Component {
     super(props);
     this.state = {};
   }
-  
+
   static propTypes = {
     field: PropTypes.string.isRequired,
     label: PropTypes.string,
@@ -58,12 +58,7 @@ export default class CCInput extends Component {
     additionalInputProps: {},
   };
 
-  static getDerivedStateFromProps(nextProps, prevState){
-    const newProps = { status: nextProps.status, value: nextProps.value };
-    return newProps;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const { status, value, onBecomeEmpty, onBecomeValid, field } = prevProps;
     if (value !== "" && this.props.value === "") onBecomeEmpty(field);
     if (status !== "valid" && this.props.status === "valid") onBecomeValid(field);
