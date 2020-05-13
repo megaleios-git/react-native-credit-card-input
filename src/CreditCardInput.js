@@ -17,7 +17,7 @@ import { InjectedProps } from "./connectToState";
 
 const s = StyleSheet.create({
   container: {
-    alignItems: "center",
+    
   },
   form: {
     marginTop: 20,
@@ -75,16 +75,16 @@ export default class CreditCardInput extends Component {
   static defaultProps = {
     cardViewSize: {},
     labels: {
-      name: "CARDHOLDER'S NAME",
-      number: "CARD NUMBER",
-      expiry: "EXPIRY",
-      cvc: "CVC/CCV",
+      name: "Nome Titular",
+      number: "Número do cartão",
+      expiry: "expira",
+      cvc: "CVC",
       postalCode: "POSTAL CODE",
     },
     placeholders: {
-      name: "Full Name",
+      name: "Nome Titular",
       number: "1234 5678 1234 5678",
-      expiry: "MM/YY",
+      expiry: "MM/AA",
       cvc: "CVC",
       postalCode: "34567",
     },
@@ -154,7 +154,8 @@ export default class CreditCardInput extends Component {
 
     return (
       <View style={s.container}>
-        <CreditCard focused={focused}
+       <View style={{alignSelf: 'center'}}>
+          <CreditCard focused={focused}
           brand={type}
           scale={cardScale}
           fontFamily={cardFontFamily}
@@ -165,12 +166,24 @@ export default class CreditCardInput extends Component {
           number={number}
           expiry={expiry}
           cvc={cvc} />
+       </View>
+
+        <Text style={{
+            fontSize: 20,
+  fontWeight: "bold",
+  marginLeft: 20,
+  marginTop:30,
+  marginBottom: 20,
+  color: 'black'
+        }}>Digite os dados do cartão</Text>
+
         <ScrollView ref="Form"
           horizontal
           keyboardShouldPersistTaps="always"
           scrollEnabled={allowScroll}
           showsHorizontalScrollIndicator={false}
           style={s.form}>
+
           <CCInput {...this._inputProps("number")}
             keyboardType="numeric"
             containerStyle={[s.inputContainer, inputContainerStyle, { width: CARD_NUMBER_INPUT_WIDTH }]} />
@@ -181,7 +194,7 @@ export default class CreditCardInput extends Component {
             <CCInput {...this._inputProps("cvc")}
               keyboardType="numeric"
               containerStyle={[s.inputContainer, inputContainerStyle, { width: CVC_INPUT_WIDTH }]} /> }
-          { requiresName &&
+                      { requiresName &&
             <CCInput {...this._inputProps("name")}
               containerStyle={[s.inputContainer, inputContainerStyle, { width: NAME_INPUT_WIDTH }]} /> }
           { requiresPostalCode &&

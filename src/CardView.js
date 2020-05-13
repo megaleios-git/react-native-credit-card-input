@@ -21,8 +21,8 @@ const s = StyleSheet.create({
     position: "absolute",
     top: 15,
     right: 15,
-    width: 60,
-    height: 40,
+    width: 60*0.8,
+    height: 40*0.8,
     resizeMode: "contain",
   },
   baseText: {
@@ -98,7 +98,7 @@ export default class CardView extends Component {
     name: "",
     placeholder: {
       number: "•••• •••• •••• ••••",
-      name: "FULL NAME",
+      name: "NOME TITULAR",
       expiry: "••/••",
       cvc: "•••",
     },
@@ -145,7 +145,7 @@ export default class CardView extends Component {
                 { !name ? placeholder.name : name.toUpperCase() }
               </Text>
               <Text style={[s.baseText, { fontFamily }, s.expiryLabel, s.placeholder, focused === "expiry" && s.focused]}>
-                MONTH/YEAR
+                MÊS/ANO
               </Text>
               <Text style={[s.baseText, { fontFamily }, s.expiry, !expiry && s.placeholder, focused === "expiry" && s.focused]}>
                 { !expiry ? placeholder.expiry : expiry }
